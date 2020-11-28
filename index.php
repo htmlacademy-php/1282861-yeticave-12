@@ -2,6 +2,9 @@
 $is_auth = rand(0, 1);
 
 $user_name = 'Sergey';
+
+require_once("data.php");
+require_once("function.php");
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -53,9 +56,6 @@ $user_name = 'Sergey';
         <h2 class="promo__title">Нужен стафф для катки?</h2>
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
-            <?php
-            require_once('categories.php'); // массив с категориями товара
-            ?>
             <?php foreach ($categories as $key => $category): ?>
             <li class="promo__item promo__item--boards">
                 <a class="promo__link" href="pages/all-lots.html"><?= $category; ?></a>
@@ -68,11 +68,6 @@ $user_name = 'Sergey';
             <h2>Открытые лоты</h2>
         </div>
         <ul class="lots__list">
-            <?php
-            require_once('products.php'); // двумерный массив с товарами
-            require_once('function.php');  // функция форматирования суммы и добавление знака рубля.
-            ?>
-            <!--заполните этот список из массива с товарами-->
             <?php foreach ($products as $product): ?>
             <li class="lots__item lot">
                 <div class="lot__image">
@@ -84,7 +79,7 @@ $user_name = 'Sergey';
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?= formatting_sum($product["price"]); ?></span>
+                            <span class="lot__cost"><?= format_price($product["price"]); ?></span>
                         </div>
                         <div class="lot__timer timer">
                             12:23

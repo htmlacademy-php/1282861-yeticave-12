@@ -1,4 +1,12 @@
 <?php
+$categories = [
+    "boards" => "Доски и лыжи",
+    "binding" => "Крепления",
+    "boots" => "Ботинки",
+    "clothes" => "Одежда",
+    "tools" => "Инструменты",
+    "other" => "Разное"
+];
 $products = [
     [
         "title" => "2014 Rossignol District Snowboard",
@@ -32,4 +40,4 @@ $products = [
         "image" => "img/lot-6.jpg"
     ]
 ];
-?>
+
