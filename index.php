@@ -54,14 +54,7 @@ $user_name = 'Sergey';
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
             <?php
-            $categories = [
-                "boards" => "Доски и лыжи",
-                "binding" => "Крепления",
-                "boots" => "Ботинки",
-                "clothes" => "Одежда",
-                "tools" => "Инструменты",
-                "other" => "Разное"
-            ];
+            require_once('categories.php'); // массив с категориями товара
             ?>
             <?php foreach ($categories as $key => $category): ?>
             <li class="promo__item promo__item--boards">
@@ -76,8 +69,8 @@ $user_name = 'Sergey';
         </div>
         <ul class="lots__list">
             <?php
-            require_once('products.php');
-            require_once('function.php');
+            require_once('products.php'); // двумерный массив с товарами
+            require_once('function.php');  // функция форматирования суммы и добавление знака рубля.
             ?>
             <!--заполните этот список из массива с товарами-->
             <?php foreach ($products as $product): ?>
@@ -90,7 +83,7 @@ $user_name = 'Sergey';
                     <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= $product["title"]; ?></a></h3>
                     <div class="lot__state">
                         <div class="lot__rate">
-                            <span class="lot__amount">Стартовая цена </span>
+                            <span class="lot__amount">Стартовая цена</span>
                             <span class="lot__cost"><?= formatting_sum($product["price"]); ?></span>
                         </div>
                         <div class="lot__timer timer">
