@@ -1,8 +1,9 @@
 <?php
-function format_price($num) {
+/** Функция для форматирования суммы и добавления к ней знака рубля
+ * @param integer $num цена товара
+ * @return string отформатированная сумма вместе со знаком рубля
+ */
+function format_price(int $num) {
     $round_num = ceil($num);
-    if ($round_num >= 1000) {
-        return number_format($round_num, 0, 0, " ") . " ₽";
-    }
-    return $round_num;
+    return number_format($round_num, 0, 0, " ") . " ₽";
 }

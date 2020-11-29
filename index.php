@@ -3,8 +3,10 @@ $is_auth = rand(0, 1);
 
 $user_name = 'Sergey';
 
-require_once("data.php");
-require_once("function.php");
+require_once/** @lang файл с массивами */
+("data.php");
+require_once/** @lang файл с функциями */
+("function.php");
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -56,7 +58,8 @@ require_once("function.php");
         <h2 class="promo__title">Нужен стафф для катки?</h2>
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
-            <?php foreach ($categories as $key => $category): ?>
+            <?php /** @var array $categories массив с категориями товаров */
+            foreach ($categories as $key => $category): ?>
             <li class="promo__item promo__item--boards">
                 <a class="promo__link" href="pages/all-lots.html"><?= $category; ?></a>
             </li>
@@ -68,7 +71,8 @@ require_once("function.php");
             <h2>Открытые лоты</h2>
         </div>
         <ul class="lots__list">
-            <?php foreach ($products as $product): ?>
+            <?php /** @var array $products двумерный массив, каждый элемент которого содержит инфо-цию об одном объявлении */
+            foreach ($products as $product): ?>
             <li class="lots__item lot">
                 <div class="lot__image">
                     <img src="<?= $product["image"]; ?>" width="350" height="260" alt="">
