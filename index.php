@@ -2,6 +2,11 @@
 $is_auth = rand(0, 1);
 
 $user_name = 'Sergey';
+
+require_once/** @lang файл с массивами */
+("data.php");
+require_once/** @lang файл с функциями */
+("function.php");
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -53,17 +58,8 @@ $user_name = 'Sergey';
         <h2 class="promo__title">Нужен стафф для катки?</h2>
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
-            <?php
-            $categories = [
-                "boards" => "Доски и лыжи",
-                "binding" => "Крепления",
-                "boots" => "Ботинки",
-                "clothes" => "Одежда",
-                "tools" => "Инструменты",
-                "other" => "Разное"
-            ];
-            ?>
-            <?php foreach ($categories as $key => $category): ?>
+            <?php /** @var array $categories массив с категориями товаров */
+            foreach ($categories as $key => $category): ?>
             <li class="promo__item promo__item--boards">
                 <a class="promo__link" href="pages/all-lots.html"><?= $category; ?></a>
             </li>
@@ -75,11 +71,8 @@ $user_name = 'Sergey';
             <h2>Открытые лоты</h2>
         </div>
         <ul class="lots__list">
-            <?php
-            require_once('products.php');
-            ?>
-            <!--заполните этот список из массива с товарами-->
-            <?php foreach ($products as $product): ?>
+            <?php /** @var array $products двумерный массив, каждый элемент которого содержит инфо-цию об одном объявлении */
+            foreach ($products as $product): ?>
             <li class="lots__item lot">
                 <div class="lot__image">
                     <img src="<?= $product["image"]; ?>" width="350" height="260" alt="">
@@ -90,7 +83,7 @@ $user_name = 'Sergey';
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?= $product["price"]; ?><b class="rub">р</b></span>
+                            <span class="lot__cost"><?= format_price($product["price"]); ?></span>
                         </div>
                         <div class="lot__timer timer">
                             12:23
