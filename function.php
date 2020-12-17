@@ -9,15 +9,20 @@ function format_price(int $num) {
 }
 
 
-/** Функция для подсчета оставшегося времени
- * @param $date дата в формате ГГГГ-ММ-ДД
+/**
+ * Функция для подсчета оставшегося времени
+ * @param string $date - дата в формате ГГГГ-ММ-ДД
+ * @return string - количество часов и минут
  */
-function end_time_lot($date) {
+function end_time_lot(string $date): string
+{
     $ts_now = strtotime($date);
-    $secs_to_end = $ts_now - time();
+    $secs_to_end = time() - $ts_now;
 
     $hours = floor($secs_to_end / 3600);
     $minutes = floor(($secs_to_end % 3600) / 60);
 
-    return $secs_to_end;
+    $lost_time = $hours . ":" . $minutes;
+
+    return $lost_time;
 }
