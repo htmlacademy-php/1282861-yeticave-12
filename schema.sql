@@ -5,9 +5,12 @@ DEFAULT COLLATE utf8_general_ci;
 USE YetiCave;
 
 CREATE TABLE user (
-    id INT AUTO_INCREMENT,
-    email VARCHAR(128) NOT NULL UNIQUE,
-    password CHAR(64) NOT NULL
+    id INT PRIMARY KEY,
+    date_of_registration DATETIME(6) NOT NULL,
+    email VARCHAR(128) UNIQUE NOT NULL,
+    name VARCHAR(128) NOT NULL,
+    password VARCHAR(128) NOT NULL,
+    contacts VARCHAR(128)
 );
 
 CREATE TABLE category (
