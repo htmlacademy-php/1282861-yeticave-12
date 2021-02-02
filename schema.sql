@@ -5,7 +5,7 @@ DEFAULT COLLATE utf8_general_ci;
 USE YetiCave;
 
 CREATE TABLE user (
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     date_of_registration DATETIME(6) NOT NULL,
     email VARCHAR(128) UNIQUE NOT NULL,
     name VARCHAR(128) NOT NULL,
