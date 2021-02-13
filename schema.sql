@@ -14,17 +14,17 @@ CREATE TABLE user (
 );
 
 CREATE TABLE category (
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(128) UNIQUE NOT NULL,
     symbol_code VARCHAR(128) UNIQUE NOT NULL
 );
 
 CREATE TABLE lot (
-    id INT PRIMARY KEY,
-    date_of_create DATETIME(6) NOT NULL,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    date DATETIME(6) NOT NULL,
     title VARCHAR(128) NOT NULL,
     description TEXT,
-    img VARCHAR(128),
+    image VARCHAR(128),
     start_price INT NOT NULL,
     expiration_date DATE NOT NULL,
     bet_step INT NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE lot (
 );
 
 CREATE TABLE bet (
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     date DATETIME(6) NOT NULL,
     price INT NOT NULL,
