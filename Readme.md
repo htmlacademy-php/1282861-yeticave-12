@@ -1,7 +1,7 @@
 ﻿# Личный проект «YetiCave»
 
 * Студент: [Сергей Комлев](https://up.htmlacademy.ru/php/12/user/1282861).
-* Наставник: [Антон Попов](https://htmlacademy.ru/profile/joker).
+* Наставник: [Александр Палян](https://htmlacademy.ru/profile/joker).
 
 ---
 
