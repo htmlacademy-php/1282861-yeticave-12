@@ -32,11 +32,6 @@ function get_categories($con) {
     $result_categories = mysqli_query($con,$sql_categories);
     $categories = mysqli_fetch_all($result_categories, MYSQLI_ASSOC);
 
-//    $result = [];
-//    foreach ($categories as $category) {
-//        $key = $category["symbol_code"];
-//        $result[$key] = $category["name"];
-//    }
     return $categories;
 }
 

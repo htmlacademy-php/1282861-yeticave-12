@@ -34,7 +34,7 @@ FROM lot AS l
          JOIN category AS c ON c.id = l.category_id
          LEFT JOIN bet AS b ON b.lot_id = l.id
 WHERE l.expiration_date > NOW()
-GROUP BY l.id
+GROUP BY l.id;
 
 -- Показываем лот по его id. Получаем название категории, к которой принадлежит лот
 SELECT l.*,c.name AS category
