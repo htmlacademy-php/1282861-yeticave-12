@@ -5,6 +5,11 @@ require_once("helpers.php");
 
 date_default_timezone_set("Europe/Moscow");
 
+$con = mysqli_connect("localhost", "root", "root", "yeticave");
+mysqli_set_charset($con, "utf8");
+
+$products = get_products($con);
+$categories = get_categories($con);
 
 $page_content = include_template('main.php', ['categories' => $categories, 'products' => $products]);
 $layout_content = include_template('layout.php', [
@@ -17,3 +22,4 @@ $layout_content = include_template('layout.php', [
 ]);
 
 print($layout_content);
+

@@ -4,9 +4,9 @@
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
             <?php /** @var array $categories массив с категориями товаров */
-            foreach ($categories as $modifier => $category): ?>
-                <li class="promo__item promo__item--<?= $modifier; ?>">
-                    <a class="promo__link" href="pages/all-lots.html"><?= $category; ?></a>
+            foreach ($categories as $category): ?>
+                <li class="promo__item promo__item--<?= $category["symbol_code"]; ?>">
+                    <a class="promo__link" href="category.php?id=<?= $category["id"]; ?>"><?= $category["name"]; ?></a>
                 </li>
             <?php endforeach; ?>
         </ul>
@@ -23,7 +23,7 @@
                         <img src="<?= $product["image"]; ?>" width="350" height="260" alt="">
                     </div>
                     <div class="lot__info">
-                        <span class="lot__category"><?= $product["categories"]; ?></span>
+                        <span class="lot__category"><?= $product["category"]; ?></span>
                         <h3 class="lot__title"><a class="text-link" href="pages/lot.html"><?= htmlspecialchars($product["title"]); ?></a></h3>
                         <div class="lot__state">
                             <div class="lot__rate">
